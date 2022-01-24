@@ -4,7 +4,9 @@
     "description": "blog project for learning typescript",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "run": "",
+        "build": ""
     },
     "repository": {
         "type": "git",
@@ -20,5 +22,8 @@
     "bugs": {
         "url": "https://github.com/EdgarKol/blog_project/issues"
     },
-    "homepage": "https://github.com/EdgarKol/blog_project#readme"
+    "homepage": "https://github.com/EdgarKol/blog_project#readme",
+    "dependencies": {
+        "typescript": "^4.5.5"
+    }
 }
