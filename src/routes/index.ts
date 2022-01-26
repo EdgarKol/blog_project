@@ -1,19 +1,21 @@
 import express from 'express';
 import fs from 'fs';
-import createUser from './user/createUser';
-import getUser from './user/getUser';
-import getUsers from './user/getUsers';
+import createUser from './users/createUser';
+import getUser from './users/getUser';
+import getUsers from './users/getUsers';
+import getPost from './posts/getPost';
+import getPosts from './posts/getPosts';
 const router = express.Router();
-
-var userRoutes: string[] = [];
+// var userRoutes: string[] = [];
 
 // fs.readdirSync(__dirname + '/user').forEach(function (file) {
-
-//     userRoutes.push(file.substring(0, file.indexOf('.')))
+//   router.use('/users', async () => {
+//     return await import(__dirname.concat('\\user\\').concat(file));
+//   });
 // });
 // console.log(userRoutes.toString());
 
-
-router.use('/user', [createUser, getUser, getUsers]);
+router.use('/users', [createUser, getUser, getUsers]);
+router.use('/posts', [getPost, getPosts]);
 
 export default router;

@@ -4,13 +4,15 @@ import {
     Column,
     CreateDateColumn,
     UpdateDateColumn,
-    getConnection,
-    BaseEntity
+    BaseEntity,
+    OneToMany
   } from 'typeorm';
+
+  import Post from './Post'
   // Dekoraator käsk, mis ütleb Typeormile, et tegemist on entity ehk
   // andmebaasi objekti kirjeldusega
   @Entity()
-  export class user extends BaseEntity {
+  export default class User extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
     @Column('varchar', { length: 150 })
@@ -33,10 +35,9 @@ import {
     createdAt: Date;
     @UpdateDateColumn()
     updatedAt: Date;
-  
-    // save() {
-    //   return getConnection().getRepository(User).save(this);
-    // }
+
+    @OneToMany(() => Post, (post) => post.autorId, {nullable: true})
+  posts: Post[];
+    
   }
   
-  export default user;
