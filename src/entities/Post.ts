@@ -1,39 +1,46 @@
 import {
     BaseEntity,
-    Column,
-    CreateDateColumn,
-    Entity,
+    PrimaryGeneratedColumn,
     JoinColumn,
     ManyToOne,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn
-}
-    from 'typeorm'
-import User from './User'
-
-@Entity()
-export default class Post extends BaseEntity {
+    Column,
+    CreateDateColumn,
+    UpdateDateColumn,
+    Entity
+  } from 'typeorm';
+  import User from './User';
+  
+  @Entity()
+  export default class Post extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id!: string;
-    @JoinColumn()
-    autorId: string;
     @Column('varchar', { length: 75 })
-    title: string
-    @JoinColumn()
-    authorId: string
+    title: string;
+    @Column()
+    authorId!: string;
+    @Column()
+    parentId!: string;
     @Column('varchar', { length: 100 })
-    metaTitle: string
+    metaTitle?: string;
     @Column('tinytext')
     summary: string;
-    @Column('boolean', {default: false})
+    @Column('boolean', { default: false })
     published: boolean;
     @Column('text')
-    content: string
+    content: string;
     @CreateDateColumn()
-    createdAt: Date
+    createdAt: Date;
     @UpdateDateColumn()
-    updatedAt: Date
-
-    @ManyToOne(() => User, (user) => user.posts)
-    author: User
-}
+    updatedAt: Date;
+  
+    @ManyToOne(() => User, (user) => user.posts, {
+      createForeignKeyConstraints: true
+    })
+    author: Promise<User>;
+  
+    // Parent post
+    @ManyToOne(() => Post, (post) => post.parentId, {
+      createForeignKeyConstraints: true
+    })
+    parentPost: Promise<User>;
+  }

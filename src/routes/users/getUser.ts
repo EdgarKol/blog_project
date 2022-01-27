@@ -1,4 +1,3 @@
-
 import express, { Request, Response } from 'express';
 import User from '../../entities/User';
 const router = express.Router();
@@ -11,12 +10,21 @@ router.get('/:id', async (req: Request, res: Response) => {
     const user = await User.findOne({ id: id });
 
     if (!user) {
-      return res.send({ message: 'no user found with given ID' });
+      return res.json({
+        message: 'no user found with given ID'
+      });
     }
 
-    return res.send(user);
+    return res.json(user);
   } catch (error) {
-    return res.send({
+    if (error instanceof Error) {
+      return res.json({
+        error: 'Unable to find user',
+        message: error.message
+      });
+    }
+    // unknown (typeorm error?)
+    return res.json({
       error: 'Unable to create new user',
       message: 'unknown error'
     });
