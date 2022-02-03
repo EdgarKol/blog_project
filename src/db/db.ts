@@ -1,28 +1,20 @@
 import { ConnectionOptions, createConnection } from 'typeorm'
+import config from '../config/config.json'
 
 export async function openDatabaseConnection(){
+const conn = await createConnection({
+type: "mysql",
+    host: config.host,
+    port: config.port,
+    username: config.username,
+    password: config.password,
+    database: "blog",
+    entities: ["src/entities/*.ts"],
+    synchronize: true
+})
 
 
-    // await closeDatabaseConnection();
-    // const options: ConnectionOptions ={
-    //     type: 'mysql', 
-    //     host: 'localhost',
-    //     port: 3306,
-    //     username: 'root',
-    //     password: 'Keli',
-    //     database: 'blog',
-    //     entities:['src'],
-    //     synchronize: true
-    // };
 
-    // const conn = await createConnection(options);
-    // const conn = await createConnection(options);
-    // if(!conn.isConnected){
-    //     throw new Error('Connection to database failed');
-    // }
-    // return conn;
-
-    const conn = await createConnection();
     if(!conn.isConnected){
         throw new Error('Connection to database failed');
     }
