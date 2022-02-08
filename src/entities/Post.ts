@@ -37,10 +37,10 @@ import {
       createForeignKeyConstraints: true
     })
     author: Promise<User>;
-  
+ 
     // Parent post
-    @ManyToOne(() => Post, (post) => post.parentId, {
+     @ManyToOne(() => Post, (post) => post.parentId, {
       createForeignKeyConstraints: true
     })
     parentPost: Promise<User>;
-  }
+   }
