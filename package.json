@@ -25,12 +25,16 @@
     },
     "homepage": "https://github.com/EdgarKol/blog_project#readme",
     "dependencies": {
+        "@types/bunyan": "^1.8.8",
         "@types/express": "^4.17.13",
         "@types/jest": "^27.4.0",
         "@types/node": "^17.0.10",
         "@types/uuid": "^8.3.4",
         "axios": "^0.25.0",
+        "bunyan": "^1.8.15",
+        "cors": "^2.8.5",
         "express": "^4.17.2",
+        "helmet": "^5.0.2",
         "json": "^11.0.0",
         "mysql": "^2.18.1",
         "test": "^0.6.0",
@@ -40,6 +44,7 @@
     },
     "devDependencies": {
         "@babel/preset-typescript": "^7.16.7",
+        "@types/cors": "^2.8.12",
         "jest": "^27.4.7",
         "ts-node": "^10.4.0"
     }
