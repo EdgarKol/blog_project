@@ -7,6 +7,9 @@ import deleteUser from './users/deleteUser';
 import getPost from './posts/getPost';
 import getPosts from './posts/getPosts';
 import createPost from './posts/createPost';
+import getComment from './comments/getComment';
+import getComments from './comments/getComments';
+import createComment from './comments/createComment';
 const router = express.Router();
 // var userRoutes: string[] = [];
 
@@ -19,5 +22,6 @@ const router = express.Router();
 
 router.use('/users', [createUser, getUser, getUsers, deleteUser]);
 router.use('/posts', [createPost, getPost, getPosts]);
+router.use('/comments', [createComment, getComments, getComment]);
 
 export default router;

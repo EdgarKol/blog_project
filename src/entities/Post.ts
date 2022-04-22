@@ -9,10 +9,12 @@ import {
   Entity,
   ManyToMany,
   JoinTable,
-  OneToMany
+  OneToMany,
+  OneToOne
 } from 'typeorm';
 import Category from './Category';
 import User from './User';
+import PostComment from './PostComment';
 
 @Entity()
 export default class Post extends BaseEntity {
@@ -41,6 +43,11 @@ export default class Post extends BaseEntity {
     createForeignKeyConstraints: true
   })
   author!: Promise<User>;
+
+  @OneToOne(() => PostComment, (PostComment) => PostComment.postId,{
+    createForeignKeyConstraints: true
+  })
+  PostComment!: Promise<PostComment>
 
   // Parent post
   @OneToMany(() => Post, (post) => post.parentId, {
