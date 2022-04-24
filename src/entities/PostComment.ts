@@ -26,17 +26,17 @@ type CommentInfo = {
 export default class PostComment extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id!: string;
-    @Column('')
-    postId: string;
+    @Column('varchar', {length: 75})
+    postId!: string;
     @Column('uuid', { nullable: true })
     parentId: string;
     @Column('varchar', { length: 75 })
     title!: string;
     @Column('boolean', { default: false })
     published!: boolean;
-    @CreateDateColumn('')
+    @CreateDateColumn()
     createdAt!: Date;
-    @CreateDateColumn('')
+    @CreateDateColumn()
     publishedAt!: Date;
     @Column('text')
     content!: string;

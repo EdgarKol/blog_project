@@ -10,6 +10,7 @@ const log = bunyan.createLogger({
 const router = express.Router();
 
 interface PostCommentInput {
+    postId: string;
     title: string;
     content: string;
 }
@@ -17,12 +18,14 @@ interface PostCommentInput {
 router.post('/', async (req: Request, res: Response) => {
     try {
         let { 
+            postId,
             title,
             content
         } = req.body as PostCommentInput
 
         const comment = PostComment.create({
             id: uuidV4(),
+            postId: postId,
             title: title,
             content: content,
             published: false

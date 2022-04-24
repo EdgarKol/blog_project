@@ -15,7 +15,7 @@ const testData = {
 const response = await axios.post(endpoint, testData,{
     headers: { 'Content-Type': 'application/json'}
 })
-const responseData = response.body
+const responseData = response.data
 
 expect(responseData.authorId).toEqual(testData.authorId)
 expect(responseData.title).toEqual(testData.title)

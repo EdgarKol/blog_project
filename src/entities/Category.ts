@@ -7,7 +7,7 @@ import {
     Entity,
     ManyToMany
   } from 'typeorm';
-import Post from './Post';
+  import Post from './Post';
   import User from './User';
 
   @Entity()
