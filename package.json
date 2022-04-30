@@ -4,7 +4,7 @@
     "description": "blog project for learning typescript",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "start": "nodemon ./src/server.ts",
         "build": "npx tsc",
         "deploy": "node build/server.js"
@@ -43,6 +43,7 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
+        "@babel/preset-env": "^7.17.10",
         "@babel/preset-typescript": "^7.16.7",
         "@types/cors": "^2.8.12",
         "jest": "^27.4.7",

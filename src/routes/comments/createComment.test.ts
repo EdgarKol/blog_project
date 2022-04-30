@@ -19,4 +19,8 @@ describe('create a comment', () =>{
         expect(responseData.content).toEqual(testData.content)
         return
     })
+    afterAll(async () => {
+        // clean up thest category
+       //const response = await axios.delete(endpoint + postId);
+      });
 })

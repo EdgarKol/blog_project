@@ -11,6 +11,8 @@ import getComment from './comments/getComment';
 import getComments from './comments/getComments';
 import createComment from './comments/createComment';
 import deleteComment from './comments/deleteComment';
+import getCategories from './categories/getCategories';
+import createCategory from './categories/createCatecory';
 const router = express.Router();
 // var userRoutes: string[] = [];
 
@@ -24,5 +26,5 @@ const router = express.Router();
 router.use('/users', [createUser, getUser, getUsers, deleteUser]);
 router.use('/posts', [createPost, getPost, getPosts]);
 router.use('/comments', [createComment, getComments, getComment, deleteComment]);
-
+router.use('/categories', [createCategory, getCategories]);
 export default router;

@@ -22,5 +22,9 @@ expect(responseData.title).toEqual(testData.title)
 expect(responseData.content).toEqual(testData.content)
 expect(responseData.summary).toEqual(testData.summary)
 return
-    })
+    });
+    afterAll(async () => {
+        // clean up thest category
+       // const response = await axios.delete();
+      });
 })

@@ -5,7 +5,7 @@ import {
     OneToMany,
     PrimaryGeneratedColumn
 } from 'typeorm';
-import Tag from './Tag';
+import Tag from './Tag'
 
 @Entity()
 export default class PostTag extends BaseEntity {
