@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const endpoint = 'http://localhost:3000/users/';
+const endpoint = 'http://localhost:3000/posts/';
 
 describe('get post by ID', () => {
 beforeAll(() => {
