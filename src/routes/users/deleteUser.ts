@@ -38,7 +38,7 @@ router.delete('/', async (req: Request, res: Response)=> {
       }
       // unknown (typeorm error?)
       return res.json({
-        error: 'Unable to create new user',
+        error: 'Unable to delete comment',
         message: 'unknown error'
       });
     }
