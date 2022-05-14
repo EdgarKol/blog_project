@@ -8,10 +8,10 @@ describe('get comment by ID', () => {
     })
     it('should return comment by ID', async () =>{
         const response = await axios.get(
-            endpoint + '/68e22066-fa4a-4681-bc55-386c1dc746a5')
+            endpoint + '/a3322a29-dc6b-4e0f-8705-33cadfa02778')
             const data = response.data
             expect(response.data).toHaveProperty('id');
-            expect(data.id).toEqual('68e22066-fa4a-4681-bc55-386c1dc746a5')
+            expect(data.id).toEqual('a3322a29-dc6b-4e0f-8705-33cadfa02778')
             return
     })
     afterAll(() =>{

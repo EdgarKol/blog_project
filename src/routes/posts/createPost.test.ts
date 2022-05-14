@@ -3,7 +3,7 @@ import axios from 'axios';
 const endpoint = 'http://localhost:3000/posts/';
 
 describe('create a post', () => {
-    let newId: string;
+//let newId: string;
     it('it should successfully create a post',async () => {
 const testData = {
     
@@ -18,17 +18,18 @@ const response = await axios.post(endpoint, testData,{
 })
 const responseData = response.data
 
-newId = responseData.id;
+//newId = responseData.id;
 
 expect(responseData.authorId).toEqual(testData.authorId)
 expect(responseData.title).toEqual(testData.title)
-//expect(responseData.content).toEqual(testData.content)
+expect(responseData.content).toEqual(testData.content)
 expect(responseData.summary).toEqual(testData.summary)
-return 
+
+return;
 
     });
     afterAll(async () => {
         // clean up thest category
-        const response = await axios.delete(endpoint + newId);
+        //const response = await axios.delete(endpoint + newId );
       });
-})
+});

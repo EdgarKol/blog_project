@@ -3,9 +3,10 @@ import axios from 'axios';
 const endpoint = 'http://localhost:3000/comments/';
 
 describe('create a comment', () =>{
+    //let newId:string;
     it('it should create a comment', async () =>{
         const testData = {
-            postId: "089ddda5-f4c8-4bca-974a-e69d616e504a",
+            postId: "17fb967d-87f4-440d-a9ec-0cc078ce0fa5",
             title: "my test comment",
             content: "running comment test"
         }
@@ -13,14 +14,16 @@ describe('create a comment', () =>{
             headers: { 'Content-Type': 'application/json'}
         })
         const responseData = response.data
+       // newId = responseData.id
 
         expect(responseData.postId).toEqual(testData.postId)
         expect(responseData.title).toEqual(testData.title)
         expect(responseData.content).toEqual(testData.content)
         return
-    })
+    });
     afterAll(async () => {
-        // clean up thest category
-       //const response = await axios.delete(endpoint + postId);
-      });
+         //clean up test category
+      // const response = await axios.delete(endpoint + newId );
+      
+    });
 })
