@@ -29,4 +29,5 @@ router.use('/users', [createUser, getUser, getUsers, deleteUser]);
 router.use('/posts', [createPost, getPost, getPosts, deletePost]);
 router.use('/comments', [createComment, getComments, getComment, deleteComment]);
 router.use('/categories', [createCategory, getCategories, deleteCategory]);
+router.delete('/deletePost/:id', [deletePost]);
 export default router;

@@ -3,13 +3,14 @@ import Post from '../../entities/Post';
 import bunyan from 'bunyan';
 const log = bunyan.createLogger({name: __filename});
 
+
 const router = express.Router();
 
 interface PostDeleteInput{
     postId: string;
 }
 
-router.delete('/', async (req: Request, res: Response) => {
+router.delete('/delete/:id', async (req: Request, res: Response) => {
     try {
         const {postId } = req.body as PostDeleteInput;
         const post = await Post.findOne({where: {id: postId}});
